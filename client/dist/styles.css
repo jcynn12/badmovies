@@ -112,6 +112,7 @@ html, body, #app {
   color: #555;
   font-size: 0.8rem;
   font-weight: bold;
+  text-align: left;
 }
 
 .movie_year, .movie_rating {
@@ -127,5 +128,5 @@ html, body, #app {
 }
 
 .movie_rating {
-  align-items: flex-end;
+  align-items: flex-start;
 }
