@@ -1,18 +1,41 @@
-const mysql = require('mysql');
-const mysqlConfig = require('./config.js');
+const mongoose = require('mongoose');
 
-const connection = mysql.createConnection(mysqlConfig);
+
+mongoose.connect('mongodb://localhost/savedMovies', (err, res) => {
+  if (err) {
+    console.error('There was an error connecting with Mongoose connect: ', err);
+  } else {
+    console.log('The database is now connected with mongoose!');
+  }
+});
+
+const { Schema } = mongoose;
+const movieSchema = new Schema({
+  id: {
+    type: Number,
+    unique: true
+  },
+  title: String,
+  genre_id: String,
+  popularity: Number,
+  vote_average: Number,
+  vote_count: Number,
+  poster_path: String
+});
+
+const Movie = mongoose.model('Movie', movieSchema);
 
 const getAllFavorites = function(callback) {
-  // get favorites from the database
+  Movie.find({}, callback);
 };
 
-const saveFavorite = function(callback) {
-  // save movie to favorites in the database
+const saveFavorite = function(movie, callback) {
+  let movieToSave = new Movie(movie);
+  movieToSave.save(callback);
 };
 
-const deleteFavorites = function(callback) {
-  // delete a movie from favorites in the database
+const deleteFavorite = function(callback) {
+  
 };
 
 module.exports = {

@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-// import AnyComponent from './components/filename.jsx'
-import Search from './components/Search.jsx'
-import Movies from './components/Movies.jsx'
+import Search from './components/Search.jsx';
+import Movies from './components/Movies.jsx';
 
 class App extends React.Component {
   constructor(props) {
-  	super(props)
+  	super(props);
   	this.state = {
       movies: [{deway: "movies"}],
       favorites: [{deway: "favorites"}],
