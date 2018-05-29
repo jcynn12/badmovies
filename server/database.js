@@ -34,12 +34,17 @@ const saveFavorite = function(movie, callback) {
   movieToSave.save(callback);
 };
 
-const deleteFavorite = function(callback) {
-  
+const deleteFavorite = function(movie, callback) {
+  Movie.find({ id: movie.id }).remove().exec(callback);
+};
+
+const getFavoritesByGenre = function(genre_id, callback) {
+  Movie.find({ genre_id: `${genre_id}` }, callback);
 };
 
 module.exports = {
   getAllFavorites,
   saveFavorite,
-  deleteFavorite
+  deleteFavorite,
+  getFavoritesByGenre
 };

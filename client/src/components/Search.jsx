@@ -6,7 +6,7 @@ class Search extends React.Component {
     super(props);
     this.state = {
       genres: [],
-      genre_id: ''
+      genre_id: '28'
     };
     this.handleSelect = this.handleSelect.bind(this);
   }

@@ -21,7 +21,7 @@ const getMoviesByGenre = (genre_id, callback) => {
       api_key,
       with_genres: genre_id,
       'vote_count.gte': 100,
-      sort_by: 'popularity.asc'
+      sort_by: 'vote_average.asc'
     }
   })
         .then((response) => {
